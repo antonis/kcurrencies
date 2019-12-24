@@ -8,7 +8,7 @@ import java.math.RoundingMode
 
 class CurrencyTests {
 
-    private fun rate(rate: Number) = { _: CurrencySymbol, _: CurrencySymbol -> BigDecimal(rate.toDouble()) }
+    private fun rate(rate: Number) = { _: CurrencyCode, _: CurrencyCode -> BigDecimal(rate.toDouble()) }
 
     @Test
     fun `with rate 2,0 exchange 100 EUR for USD`() {
@@ -34,6 +34,11 @@ class CurrencyTests {
     @Test
     fun `split 1000 CHF in two`() {
         assertEquals(runBlocking { 1000.CHF / 2 }, +(500.CHF))
+    }
+
+    @Test
+    fun `division by zero`() {
+        assertEquals(runBlocking { 100.USD / 0 }, null)
     }
 
     @Test

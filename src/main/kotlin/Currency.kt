@@ -1,46 +1,37 @@
 package com.euapps.kcurrencies
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-enum class CurrencySymbol {
-    EUR, CAD, HKD, ISK, PHP, DKK, HUF, CZK, AUD, RON, SEK,
-    IDR, INR, BRL, RUB, HRK, JPY, THB, CHF, SGD, PLN, BGN,
-    TRY, CNY, NOK, NZD, ZAR, USD, MXN, ILS, GBP, KRW, MYR
-}
-
-open class Currency(val amount: Amount, val symbol: CurrencySymbol) {
+/**
+ * Currency object
+ * @param amount the amount of the currency
+ * @param code the ISO 4217 currency code
+ */
+open class Currency(val amount: Amount, val code: CurrencyCode) {
 
     companion object {
+        /**
+         * The number of digits to the right of the decimal point
+         */
         var scale: Int = 2
-        var roundingMode: RoundingMode = RoundingMode.HALF_EVEN
-        var exchange: (base: CurrencySymbol, currency: CurrencySymbol) -> BigDecimal? = ::getRate
-    }
 
-    suspend fun transform(
-        from: Currency,
-        to: CurrencySymbol,
-        rate: (base: CurrencySymbol, currency: CurrencySymbol) -> BigDecimal? = exchange
-    ): Currency? {
-        if (from.symbol == to) return from
-        return withContext(Dispatchers.IO) {
-            rate(from.symbol, to)?.let {
-                Currency((it * from.amount.amount).amount, to)
-            }
-        }
+        /**
+         * The rounding algorithm to be used for an operation
+         */
+        var roundingMode: RoundingMode = RoundingMode.HALF_EVEN
+
+        /**
+         * A function that provides transformation rates between two currencies
+         * By default it fetches exchange rate from the European Central Bank https://exchangeratesapi.io
+         */
+        var exchange: (base: CurrencyCode, currency: CurrencyCode) -> BigDecimal? = ::getRate
     }
 
     override fun equals(other: Any?) =
-        other is Currency && symbol == other.symbol && amount.amount == other.amount.amount
+        other is Currency && code == other.code && amount.amount == other.amount.amount
 
-    override fun toString() = "${amount.amount.setScale(scale, roundingMode)} ${symbol.name}"
+    override fun toString() = "${amount.amount.setScale(scale, roundingMode)} ${code.name}"
 
-    override fun hashCode() = amount.hashCode() + symbol.hashCode()
+    override fun hashCode() = amount.hashCode() + code.hashCode()
 }
-
-data class Amount(val amount: BigDecimal)
-
-val Number.amount: Amount
-    get() = Amount(BigDecimal(this.toDouble()))

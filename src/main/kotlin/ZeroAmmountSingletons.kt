@@ -1,67 +1,72 @@
 package com.euapps.kcurrencies
 
-object EUR : Currency(0.amount, CurrencySymbol.EUR)
+/**
+ * Zero Amount Currency singletons
+ * Useful when we just need the currency information
+ */
 
-object CAD : Currency(0.amount, CurrencySymbol.CAD)
+object EUR : Currency(0.amount, CurrencyCode.EUR)
 
-object HKD : Currency(0.amount, CurrencySymbol.HKD)
+object CAD : Currency(0.amount, CurrencyCode.CAD)
 
-object ISK : Currency(0.amount, CurrencySymbol.ISK)
+object HKD : Currency(0.amount, CurrencyCode.HKD)
 
-object PHP : Currency(0.amount, CurrencySymbol.PHP)
+object ISK : Currency(0.amount, CurrencyCode.ISK)
 
-object DKK : Currency(0.amount, CurrencySymbol.DKK)
+object PHP : Currency(0.amount, CurrencyCode.PHP)
 
-object HUF : Currency(0.amount, CurrencySymbol.HUF)
+object DKK : Currency(0.amount, CurrencyCode.DKK)
 
-object CZK : Currency(0.amount, CurrencySymbol.CZK)
+object HUF : Currency(0.amount, CurrencyCode.HUF)
 
-object AUD : Currency(0.amount, CurrencySymbol.AUD)
+object CZK : Currency(0.amount, CurrencyCode.CZK)
 
-object RON : Currency(0.amount, CurrencySymbol.RON)
+object AUD : Currency(0.amount, CurrencyCode.AUD)
 
-object SEK : Currency(0.amount, CurrencySymbol.SEK)
+object RON : Currency(0.amount, CurrencyCode.RON)
 
-object IDR : Currency(0.amount, CurrencySymbol.IDR)
+object SEK : Currency(0.amount, CurrencyCode.SEK)
 
-object INR : Currency(0.amount, CurrencySymbol.INR)
+object IDR : Currency(0.amount, CurrencyCode.IDR)
 
-object BRL : Currency(0.amount, CurrencySymbol.BRL)
+object INR : Currency(0.amount, CurrencyCode.INR)
 
-object RUB : Currency(0.amount, CurrencySymbol.RUB)
+object BRL : Currency(0.amount, CurrencyCode.BRL)
 
-object HRK : Currency(0.amount, CurrencySymbol.HRK)
+object RUB : Currency(0.amount, CurrencyCode.RUB)
 
-object JPY : Currency(0.amount, CurrencySymbol.JPY)
+object HRK : Currency(0.amount, CurrencyCode.HRK)
 
-object THB : Currency(0.amount, CurrencySymbol.THB)
+object JPY : Currency(0.amount, CurrencyCode.JPY)
 
-object CHF : Currency(0.amount, CurrencySymbol.CHF)
+object THB : Currency(0.amount, CurrencyCode.THB)
 
-object SGD : Currency(0.amount, CurrencySymbol.SGD)
+object CHF : Currency(0.amount, CurrencyCode.CHF)
 
-object PLN : Currency(0.amount, CurrencySymbol.PLN)
+object SGD : Currency(0.amount, CurrencyCode.SGD)
 
-object BGN : Currency(0.amount, CurrencySymbol.BGN)
+object PLN : Currency(0.amount, CurrencyCode.PLN)
 
-object TRY : Currency(0.amount, CurrencySymbol.TRY)
+object BGN : Currency(0.amount, CurrencyCode.BGN)
 
-object CNY : Currency(0.amount, CurrencySymbol.CNY)
+object TRY : Currency(0.amount, CurrencyCode.TRY)
 
-object NOK : Currency(0.amount, CurrencySymbol.NOK)
+object CNY : Currency(0.amount, CurrencyCode.CNY)
 
-object NZD : Currency(0.amount, CurrencySymbol.NZD)
+object NOK : Currency(0.amount, CurrencyCode.NOK)
 
-object ZAR : Currency(0.amount, CurrencySymbol.ZAR)
+object NZD : Currency(0.amount, CurrencyCode.NZD)
 
-object USD : Currency(0.amount, CurrencySymbol.USD)
+object ZAR : Currency(0.amount, CurrencyCode.ZAR)
 
-object MXN : Currency(0.amount, CurrencySymbol.MXN)
+object USD : Currency(0.amount, CurrencyCode.USD)
 
-object ILS : Currency(0.amount, CurrencySymbol.ILS)
+object MXN : Currency(0.amount, CurrencyCode.MXN)
 
-object GBP : Currency(0.amount, CurrencySymbol.GBP)
+object ILS : Currency(0.amount, CurrencyCode.ILS)
 
-object KRW : Currency(0.amount, CurrencySymbol.KRW)
+object GBP : Currency(0.amount, CurrencyCode.GBP)
 
-object MYR : Currency(0.amount, CurrencySymbol.MYR)
+object KRW : Currency(0.amount, CurrencyCode.KRW)
+
+object MYR : Currency(0.amount, CurrencyCode.MYR)
