@@ -1,0 +1,13 @@
+language: kotlin
+jdk:
+  - oraclejdk8
+before_script:
+  - chmod +x gradlew
+install:
+  - pip install --user codecov
+script:
+  - ./gradlew --version
+  - ./gradlew check
+  - ./gradlew jacocoTestReport
+after_success:
+  - codecov
