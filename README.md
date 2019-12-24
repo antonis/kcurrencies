@@ -1,5 +1,9 @@
 # kcurrencies
+[ ![Download](https://api.bintray.com/packages/antonis/kcurrencies/com.euapps.kcurrencies/images/download.svg) ](https://bintray.com/antonis/kcurrencies/com.euapps.kcurrencies/_latestVersion)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
+[![Build Status](https://travis-ci.com/antonis/kcurrencies.svg?branch=master)](https://travis-ci.com/antonis/kcurrencies)
+[![Codecov](https://codecov.io/github/antonis/kcurrencies/coverage.svg?branch=master)](https://codecov.io/gh/antonis/kcurrencies)
+
 
 A simple currencies DSL implemented in Kotlin. It provides operations and exchange between currencies.
 By default it fetches exchange rates using the European Central Bank API https://exchangeratesapi.io but the user may add any other source
@@ -9,13 +13,18 @@ By default it fetches exchange rates using the European Central Bank API https:/
 Gradle
 
 ```groovy
-TODO
+implementation 'com.euapps:com.euapps.kcurrencies:0.0.1'
 ```
 
 Maven
 
 ```xml
-TODO
+<dependency>
+  <groupId>com.euapps</groupId>
+  <artifactId>com.euapps.kcurrencies</artifactId>
+  <version>0.0.1</version>
+  <type>pom</type>
+</dependency>
 ```
 
 ## Supported Currencies
@@ -39,6 +48,17 @@ You can convert between two currencies by using the to keyword followed by the I
 1_238.91.CHF to USD
 ```
 Note that any conversion is a suspend function since it performs an API call and should be run in a proper coroutine scope.
+
+```kotlin
+suspend fun main() {
+    val billEur = 82.30.EUR
+    println(billEur) // 82.30 EUR
+    val billUsd = billEur to USD
+    println(billUsd) // 91.15 USD
+    val splitBill = billUsd / 3
+    println(splitBill) // 30.38 USD
+}
+```
 
 You may perform addition, subtraction multiplication and division of currencies using numeric operators.
 ```kotlin
