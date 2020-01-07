@@ -13,7 +13,7 @@ By default it fetches exchange rates using the European Central Bank API https:/
 Gradle
 
 ```groovy
-implementation 'com.euapps:com.euapps.kcurrencies:0.0.1'
+implementation 'com.euapps:com.euapps.kcurrencies:0.0.2'
 ```
 
 Maven
@@ -22,7 +22,7 @@ Maven
 <dependency>
   <groupId>com.euapps</groupId>
   <artifactId>com.euapps.kcurrencies</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <type>pom</type>
 </dependency>
 ```
