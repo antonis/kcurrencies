@@ -67,10 +67,8 @@ operator fun Currency?.times(mul: Number?) =
  * @param div divisor
  * @return the result of the division
  */
-operator fun Currency?.div(div: Number?) = if (this == null || div == null || div.toDouble() == 0.0) null else Currency(
-    this.amount.amount.divide(BigDecimal(div.toDouble()), Currency.scale, Currency.roundingMode).amount,
-    this.code
-)
+operator fun Currency?.div(div: Number?) = if (this == null || div == null || div.amount.amount == BigDecimal.ZERO) null
+    else Currency(this.amount.amount.divide(div.amount.amount, Currency.scale, Currency.roundingMode).amount, this.code)
 
 /**
  * Unary minus operator

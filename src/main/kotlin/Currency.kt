@@ -29,9 +29,10 @@ open class Currency(val amount: Amount, val code: CurrencyCode) {
     }
 
     override fun equals(other: Any?) =
-        other is Currency && code == other.code && amount.amount == other.amount.amount
+        other is Currency && code == other.code &&
+                amount.amount.setScale(scale, roundingMode) == other.amount.amount.setScale(scale, roundingMode)
 
     override fun toString() = "${amount.amount.setScale(scale, roundingMode)} ${code.name}"
 
-    override fun hashCode() = amount.hashCode() + code.hashCode()
+    override fun hashCode() = amount.amount.setScale(scale, roundingMode).hashCode() + code.hashCode()
 }
